@@ -44,7 +44,11 @@ k help
     dl      | Deployments List: Get list of deployments in current namespace
     ds <d> <n> | Deployment Scale: Scale a deployment. Params: [d=deployment name] [n=number of replicas]
     dd <d>  | Deployment Describe: Describe a deployment. Params: [d=deployment name]
+  
   Logs
-    logs <p>  | Get last logs from the pod. Params: [p=pod name]
-    logsf <p> | Follow logs from the pod. Params: [p=pod name]
+    l  <p> | Get last logs from the pod. Params: [p=pod name]
+    lf <p> | Follow logs from the pod. Params: [p=pod name]
+  
+  Port forwarding
+    pf  <p> <l> <t> | Forward host port to pod's port. Params: [p=pod name] [l=local port] [t=pod's port]
 ```

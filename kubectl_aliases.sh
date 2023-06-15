@@ -3,6 +3,7 @@
 ACTION=$1
 PARAM1=$2
 PARAM2=$3
+PARAM3=$4
 
 function help() {
     # Display Help
@@ -35,8 +36,8 @@ function help() {
     echo "    dd <d>  | Deployment Describe: Describe a deployment. Params: [d=deployment name]"
     echo 
     echo "  Logs"
-    echo "    logs <p>  | Get last logs from the pod. Params: [p=pod name]"
-    echo "    logsf <p> | Follow logs from the pod. Params: [p=pod name]"
+    echo "    l  <p> | Get last logs from the pod. Params: [p=pod name]"
+    echo "    lf <p> | Follow logs from the pod. Params: [p=pod name]"
 }
 
 function help_hint () {
@@ -56,6 +57,14 @@ function require_params_2() {
   	echo "Invalid pameters. Action requires at least 2 parameters."
   	help_hint
   	exit 1;
+  fi
+}
+
+function require_params_3() {
+  if [ -z $PARAM1 ] || [ -z $PARAM2 ] || [ -z $PARAM3 ]; then
+    echo "Invalid pameters. Action requires at least 3 parameters."
+    help_hint
+    exit 1;
   fi
 }
 
@@ -110,12 +119,18 @@ case $ACTION in
     kubectl describe deployments "$PARAM1"
     ;;
 # Logs related actions
-  logs)
+  l)
+    require_params_1
     kubectl logs "$PARAM1"
     ;;
-  logsf)
+  lf)
+    require_params_1
     kubectl logs -f "$PARAM1"
     ;;
+# Port forwarding
+  pf)
+    require_params_3
+    kubectl port-forward "$PARAM1" "$PARAM2":"$PARAM3"
 
   *|help)
     help
