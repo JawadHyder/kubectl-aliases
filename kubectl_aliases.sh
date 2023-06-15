@@ -131,7 +131,7 @@ case $ACTION in
   pf)
     require_params_3
     kubectl port-forward "$PARAM1" "$PARAM2":"$PARAM3"
-
+    ;;
   *|help)
     help
     ;;
