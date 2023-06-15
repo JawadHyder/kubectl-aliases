@@ -33,6 +33,10 @@ function help() {
     echo "    dl      | Deployments List: Get list of deployments in current namespace"
     echo "    ds <d> <n> | Deployment Scale: Scale a deployment. Params: [d=deployment name] [n=number of replicas]"
     echo "    dd <d>  | Deployment Describe: Describe a deployment. Params: [d=deployment name]"
+    echo 
+    echo "  Logs"
+    echo "    logs <p>  | Get last logs from the pod. Params: [p=pod name]"
+    echo "    logsf <p> | Follow logs from the pod. Params: [p=pod name]"
 }
 
 function help_hint () {
@@ -104,6 +108,13 @@ case $ACTION in
   dd)
     require_params_1
     kubectl describe deployments "$PARAM1"
+    ;;
+# Logs related actions
+  logs)
+    kubectl logs "$PARAM1"
+    ;;
+  logsf)
+    kubectl logs -f "$PARAM1"
     ;;
 
   *|help)
