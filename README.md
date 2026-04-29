@@ -68,6 +68,6 @@ echo "source $(pwd)/kubectl_aliases_completion.sh" >> ~/.bashrc && source ~/.bas
 ```
 ### Zsh
 ```sh
-echo "autoload -U +X bashcompinit && bashcompinit" >> ~/.zshrc
-echo "source $(pwd)/kubectl_aliases_completion.sh" >> ~/.zshrc && source ~/.zshrc
+echo "autoload -Uz compinit && compinit" >> ~/.zshrc
+echo "source $(pwd)/kubectl_aliases_completion.zsh" >> ~/.zshrc && source ~/.zshrc
 ```
