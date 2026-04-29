@@ -51,4 +51,23 @@ k help
   
   Port forwarding
     pf  <p> <l> <t> | Forward host port to pod's port. Params: [p=pod name] [l=local port] [t=pod's port]
+
+  Jobs (CronJobs)
+    jobs                 | List cronjobs in current namespace
+    jobs history         | List recent job runs
+    job describe <j>     | Describe a cronjob
+    job trigger <j>      | Trigger a cronjob now (creates a one-off Job)
+    job suspend <j>      | Suspend a cronjob
+    job resume  <j>      | Resume a suspended cronjob
+```
+
+# Tab completion (optional)
+### Bash
+```sh
+echo "source $(pwd)/kubectl_aliases_completion.sh" >> ~/.bashrc && source ~/.bashrc
+```
+### Zsh
+```sh
+echo "autoload -U +X bashcompinit && bashcompinit" >> ~/.zshrc
+echo "source $(pwd)/kubectl_aliases_completion.sh" >> ~/.zshrc && source ~/.zshrc
 ```
