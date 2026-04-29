@@ -60,14 +60,3 @@ k help
     job suspend <j>      | Suspend a cronjob
     job resume  <j>      | Resume a suspended cronjob
 ```
-
-# Tab completion (optional)
-### Bash
-```sh
-echo "source $(pwd)/kubectl_aliases_completion.sh" >> ~/.bashrc && source ~/.bashrc
-```
-### Zsh
-```sh
-echo "autoload -Uz compinit && compinit" >> ~/.zshrc
-echo "source $(pwd)/kubectl_aliases_completion.zsh" >> ~/.zshrc && source ~/.zshrc
-```
